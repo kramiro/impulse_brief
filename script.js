@@ -143,7 +143,24 @@ function buildSummary() {
   const items = [['Proyecto',project],['Objetivo',data.get('goal')],['Tipo de sitio',siteType],['Público',data.get('audience')],['Color',`<span class="summary-color"><i style="--summary-color:${data.get('color')}"></i>${data.get('color').toUpperCase()}</span>`],['Tipografía',`${data.get('font')} · ${data.get('typeTreatment')}`],['Estilo',data.get('visualStyle')],['Secciones',data.get('sections')],['Dominio',domain],['Referencias',data.get('references') || files || '—'],['Contacto',`${data.get('name')} · ${contact}`]];
   document.querySelector('#summary').innerHTML = items.map(([label,value]) => `<dl class="summary-item"><dt>${label}</dt><dd>${value}</dd></dl>`).join('');
 }
-nextButton.addEventListener('click', () => { if (currentStep === steps.length - 1) { document.querySelector('#success-modal').classList.add('open'); document.querySelector('#success-modal').setAttribute('aria-hidden','false'); return; } if (validateStep()) showStep(currentStep + 1); });
+async function submitBrief() {
+  nextButton.disabled = true;
+  nextButton.innerHTML = '<span>Guardando…</span>';
+  errorMessage.textContent = '';
+  try {
+    const response = await fetch('/api/briefs', { method: 'POST', body: new FormData(form) });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'No pudimos guardar tu brief.');
+    document.querySelector('#success-modal').classList.add('open');
+    document.querySelector('#success-modal').setAttribute('aria-hidden','false');
+  } catch (error) {
+    errorMessage.textContent = error.message || 'No pudimos guardar tu brief. Inténtalo de nuevo.';
+  } finally {
+    nextButton.disabled = false;
+    nextButton.innerHTML = '<span>Enviar brief</span> ↗';
+  }
+}
+nextButton.addEventListener('click', () => { if (currentStep === steps.length - 1) { submitBrief(); return; } if (validateStep()) showStep(currentStep + 1); });
 backButton.addEventListener('click', () => { if (currentStep > 0) showStep(currentStep - 1); });
 document.querySelector('#restart-btn').addEventListener('click', () => { form.reset(); setColor('#7656ff'); toneKnob.style.left = '50%'; wheelKnob.style.left = '82%'; wheelKnob.style.top = '20%'; document.querySelectorAll('.selected').forEach(item => item.classList.remove('selected')); document.querySelector('.font-option').classList.add('selected'); document.querySelector('.type-control').classList.add('selected'); setHiddenValue('font','DM Sans'); setHiddenValue('typeTreatment','Regular'); typePreview.removeAttribute('style'); document.querySelector('#other-site-type-wrap').classList.remove('visible'); document.querySelector('#domain-input-wrap').classList.remove('visible'); document.querySelector('#domain-help').classList.remove('visible'); document.querySelector('#file-names').textContent = ''; document.querySelectorAll('.checks input[value="Inicio"], .checks input[value="Contacto"]').forEach(input => input.checked = true); document.querySelector('#success-modal').classList.remove('open'); document.querySelector('#success-modal').setAttribute('aria-hidden','true'); showStep(0); });
 form.addEventListener('keydown', event => { if (event.key === 'Enter' && event.target.tagName !== 'TEXTAREA') { event.preventDefault(); nextButton.click(); } });
