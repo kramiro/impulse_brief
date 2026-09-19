@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Brief interactivo de Impulse Landing" />
+    <title>Impulse Landing — Cuéntanos tu idea</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#inicio" aria-label="Impulse Landing, inicio">
+          <span class="brand-mark">i.</span><span>IMPULSE<br />LANDING</span>
+        </a>
+        <span class="topbar-note">BRIEF DIGITAL <i></i> 2025</span>
+      </header>
+
+      <section class="brief-card" id="inicio" aria-labelledby="step-title">
+        <div class="card-head">
+          <p class="eyebrow" id="step-label">01 / 10 — EMPECEMOS</p>
+          <div class="progress-wrap">
+            <span id="progress-text">10%</span>
+            <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
+          </div>
+        </div>
+
+        <form id="brief-form" novalidate>
+          <section class="step active" data-step="0">
+            <p class="kicker">UNA BUENA IDEA MERECE TOMAR FORMA.</p>
+            <h1 id="step-title">Cuéntanos<br /><em>tu idea.</em></h1>
+            <p class="intro">Vamos a convertir lo que imaginas en un sitio que se sienta muy tuyo. Empieza por contarnos de qué va tu proyecto.</p>
+            <label class="field-label" for="project-idea">¿Qué estás creando?</label>
+            <textarea id="project-idea" name="idea" placeholder="Ej. Una marca de café de especialidad que quiere vender su primera colección online..." required></textarea>
+            <label class="project-name-field" for="project-name">¿Tu idea ya tiene nombre? <span>(si todavía no, puedes dejarlo vacío)</span><input id="project-name" name="projectName" placeholder="Ej. Casa Cálida" /></label>
+            <p class="field-hint">No hace falta que sea perfecto. Las ideas en borrador también cuentan.</p>
+          </section>
+
+          <section class="step" data-step="1">
+            <p class="kicker">TU NORTE</p>
+            <h2>¿Qué debería lograr<br /><em>tu sitio?</em></h2>
+            <p class="intro">Elige el objetivo que más importa ahora. Después afinamos los detalles.</p>
+            <div class="choice-grid choices-2" data-required="goal" role="radiogroup" aria-label="Objetivo principal">
+              <button type="button" class="choice-card" data-value="Convertir visitas en clientes"><b>01</b><span>Convertir visitas<br />en clientes</span></button>
+              <button type="button" class="choice-card" data-value="Vender productos o servicios"><b>02</b><span>Vender productos<br />o servicios</span></button>
+              <button type="button" class="choice-card" data-value="Mostrar mi portafolio"><b>03</b><span>Mostrar mi<br />portafolio</span></button>
+              <button type="button" class="choice-card" data-value="Construir comunidad"><b>04</b><span>Construir<br />comunidad</span></button>
+            </div>
+            <input type="hidden" name="goal" required />
+          </section>
+
+          <section class="step" data-step="2">
+            <p class="kicker">EL FORMATO</p>
+            <h2>¿Qué tipo de sitio<br /><em>imaginas?</em></h2>
+            <p class="intro">Escoge el punto de partida que se parezca más a tu proyecto.</p>
+            <div class="choice-grid choices-3" data-required="siteType" role="radiogroup" aria-label="Tipo de sitio">
+              <button type="button" class="choice-card" data-value="Landing page"><b>01</b><span>Landing<br />page</span></button>
+              <button type="button" class="choice-card" data-value="Tienda online"><b>02</b><span>Tienda<br />online</span></button>
+              <button type="button" class="choice-card" data-value="Portafolio"><b>03</b><span>Portafolio</span></button>
+              <button type="button" class="choice-card" data-value="Sitio de servicios"><b>04</b><span>Sitio de<br />servicios</span></button>
+              <button type="button" class="choice-card" data-value="Blog o revista"><b>05</b><span>Blog o<br />revista</span></button>
+              <button type="button" class="choice-card" data-value="Otro"><b>06</b><span>Otro / aún<br />no lo sé</span></button>
+            </div>
+            <input type="hidden" name="siteType" required />
+            <label class="conditional-field" id="other-site-type-wrap" for="other-site-type">Cuéntanos qué tipo de sitio tienes en mente<input id="other-site-type" name="siteTypeOther" placeholder="Ej. plataforma educativa, directorio, comunidad..." /></label>
+          </section>
+
+          <section class="step" data-step="3">
+            <p class="kicker">LAS PERSONAS</p>
+            <h2>¿Para quién<br /><em>lo hacemos?</em></h2>
+            <p class="intro">Describe a las personas que quieres atraer.</p>
+            <label class="field-label" for="audience">Tu público ideal</label>
+            <textarea id="audience" name="audience" placeholder="Ej. Personas curiosas de 25–40 años que valoran el diseño, la calidad y las historias detrás de lo que compran." required></textarea>
+            <div class="mini-prompts"><span>EDAD / ETAPA</span><span>INTERESES</span><span>NECESIDAD</span></div>
+          </section>
+
+          <section class="step" data-step="4">
+            <p class="kicker">LA ATMÓSFERA</p>
+            <h2>Encuentra<br /><em>tu color.</em></h2>
+            <p class="intro">Mueve el selector hasta que se sienta como tu marca. Es solo una primera intuición.</p>
+            <div class="color-layout">
+              <div class="color-preview" id="color-preview"><span>IMPULSE<br />LANDING</span></div>
+              <div class="color-controls">
+                <label class="field-label" for="color-picker">Color principal</label>
+                <input id="color-picker" name="color" type="color" value="#7656ff" aria-describedby="color-hex" />
+                <div class="color-wheel" id="color-wheel" aria-label="Rueda cromática de color"><div class="wheel-knob" id="wheel-knob"></div></div>
+                <div class="tone-spectrum" id="tone-spectrum" aria-label="Escala entre blanco y negro"><div class="tone-knob" id="tone-knob"></div></div>
+                <output id="color-hex" for="color-picker">#7656FF</output>
+                <div class="swatches" aria-label="Colores sugeridos">
+                  <button type="button" data-color="#7656ff" style="--swatch:#7656ff" aria-label="Violeta"></button>
+                  <button type="button" data-color="#ed6fbc" style="--swatch:#ed6fbc" aria-label="Rosa"></button>
+                  <button type="button" data-color="#f0b049" style="--swatch:#f0b049" aria-label="Ámbar"></button>
+                  <button type="button" data-color="#4ab8a4" style="--swatch:#4ab8a4" aria-label="Verde agua"></button>
+                  <button type="button" data-color="#ef5d5d" style="--swatch:#ef5d5d" aria-label="Rojo"></button>
+                  <button type="button" data-color="#ffffff" style="--swatch:#ffffff" aria-label="Blanco"></button>
+                  <button type="button" data-color="#000000" style="--swatch:#000000" aria-label="Negro"></button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="step" data-step="5">
+            <p class="kicker">LA VOZ VISUAL</p>
+            <h2>Elige una tipografía<br /><em>con personalidad.</em></h2>
+            <p class="intro">No necesitas conocer nombres de fuentes: escoge la que mejor suene a tu proyecto.</p>
+            <div class="font-list" data-required="font" role="radiogroup" aria-label="Tipografía preferida">
+              <button type="button" class="font-option selected" data-value="DM Sans"><span class="font-sample dm-sans">Una idea que impulsa.</span><small>DM Sans · Clara y contemporánea</small></button>
+              <button type="button" class="font-option" data-value="Space Grotesk"><span class="font-sample space-grotesk">Una idea que impulsa.</span><small>Space Grotesk · Moderna y audaz</small></button>
+              <button type="button" class="font-option" data-value="Fraunces"><span class="font-sample fraunces">Una idea que impulsa.</span><small>Fraunces · Editorial y expresiva</small></button>
+              <button type="button" class="font-option" data-value="Manrope"><span class="font-sample manrope">Una idea que impulsa.</span><small>Manrope · Amable y precisa</small></button>
+              <button type="button" class="font-option" data-value="Playfair Display"><span class="font-sample playfair">Una idea que impulsa.</span><small>Playfair Display · Elegante y clásica</small></button>
+              <button type="button" class="font-option" data-value="Archivo"><span class="font-sample archivo">Una idea que impulsa.</span><small>Archivo · Profesional y directa</small></button>
+              <button type="button" class="font-option" data-value="Work Sans"><span class="font-sample work-sans">Una idea que impulsa.</span><small>Work Sans · Cercana y funcional</small></button>
+              <button type="button" class="font-option" data-value="Cormorant Garamond"><span class="font-sample cormorant">Una idea que impulsa.</span><small>Cormorant · Sofisticada y artística</small></button>
+              <button type="button" class="font-option" data-value="Libre Baskerville"><span class="font-sample baskerville">Una idea que impulsa.</span><small>Libre Baskerville · Clásica y confiable</small></button>
+              <button type="button" class="font-option" data-value="Bebas Neue"><span class="font-sample bebas">Una idea que impulsa.</span><small>Bebas Neue · Impactante y visual</small></button>
+            </div>
+            <div class="type-toolbox" aria-label="Ajustes tipográficos">
+              <span class="toolbox-label">AJUSTA EL TONO</span>
+              <div class="type-controls" data-required="typeTreatment">
+                <button type="button" class="type-control selected" data-value="Regular" aria-pressed="true">Aa</button>
+                <button type="button" class="type-control strong" data-value="Negrita" aria-pressed="false">B</button>
+                <button type="button" class="type-control italic" data-value="Itálica" aria-pressed="false">I</button>
+                <button type="button" class="type-control uppercase" data-value="Mayúsculas" aria-pressed="false">AA</button>
+              </div>
+              <p class="type-preview" id="type-preview">Tu marca, con tu propia voz.</p>
+            </div>
+            <input type="hidden" name="typeTreatment" value="Regular" />
+            <input type="hidden" name="font" value="DM Sans" required />
+          </section>
+
+          <section class="step" data-step="6">
+            <p class="kicker">LA DIRECCIÓN</p>
+            <h2>¿Qué energía debería<br /><em>transmitir?</em></h2>
+            <p class="intro">Puedes elegir hasta dos estilos. Las combinaciones inesperadas suelen ser las mejores.</p>
+            <div class="style-options" data-max="2" data-required="visualStyle">
+              <button type="button" data-value="Minimalista">Minimalista <i>→</i></button><button type="button" data-value="Editorial">Editorial <i>→</i></button><button type="button" data-value="Vibrante">Vibrante <i>→</i></button><button type="button" data-value="Orgánica">Orgánica <i>→</i></button><button type="button" data-value="Tecnológica">Tecnológica <i>→</i></button><button type="button" data-value="Elegante">Elegante <i>→</i></button>
+            </div>
+            <input type="hidden" name="visualStyle" required />
+          </section>
+
+          <section class="step" data-step="7">
+            <p class="kicker">LA ESTRUCTURA</p>
+            <h2>¿Qué necesita<br /><em>contar tu sitio?</em></h2>
+            <p class="intro">Marca las secciones que ves imprescindibles. Añade las que falten al final.</p>
+            <div class="checks" data-required="sections">
+              <label><input type="checkbox" value="Inicio" checked /><span>Inicio</span></label><label><input type="checkbox" value="Sobre la marca" /><span>Sobre la marca</span></label><label><input type="checkbox" value="Servicios o productos" /><span>Servicios / productos</span></label><label><input type="checkbox" value="Portafolio o galería" /><span>Portafolio / galería</span></label><label><input type="checkbox" value="Testimonios" /><span>Testimonios</span></label><label><input type="checkbox" value="Contacto" checked /><span>Contacto</span></label><label><input type="checkbox" value="Blog o novedades" /><span>Blog / novedades</span></label>
+            </div>
+            <label class="inline-field" for="other-sections">Otra sección que no puede faltar <input id="other-sections" name="otherSections" placeholder="Ej. agenda, preguntas frecuentes..." /></label>
+            <input type="hidden" name="sections" required />
+          </section>
+
+          <section class="step" data-step="8">
+            <p class="kicker">TUS REFERENCIAS</p>
+            <h2>Muéstranos lo que<br /><em>te inspira.</em></h2>
+            <p class="intro">Pega enlaces de sitios, Instagram o Pinterest. También puedes describir una referencia que tengas en mente.</p>
+            <label class="field-label" for="references">Referencias y enlaces <span>(opcional)</span></label>
+            <textarea id="references" name="references" placeholder="https://...&#10;Me gusta la manera en que esta marca usa el espacio y las fotos..." ></textarea>
+            <label class="file-upload" for="reference-files"><span>＋</span> Adjuntar imágenes, PDF o brief <small>Opcional · hasta 5 archivos</small></label>
+            <input id="reference-files" name="referenceFiles" type="file" multiple accept="image/*,.pdf,.doc,.docx" />
+            <p class="file-names" id="file-names" aria-live="polite"></p>
+          </section>
+
+          <section class="step" data-step="9">
+            <p class="kicker">CASI LISTO</p>
+            <h2>¿Cómo podemos<br /><em>contactarte?</em></h2>
+            <p class="intro">Déjanos una forma de contacto y nos pondremos en comunicación contigo.</p>
+            <div class="contact-fields">
+              <label>Tu nombre<input name="name" autocomplete="name" placeholder="Nombre y apellido" required /></label>
+              <label>Correo electrónico <small>(si tienes)</small><input name="email" type="email" autocomplete="email" placeholder="hola@tumarca.com" /></label>
+              <label>Número celular <small>(si prefieres)</small><input name="phone" type="tel" autocomplete="tel" placeholder="+504 0000 0000" /></label>
+              <label>Marca o proyecto<input name="brand" placeholder="El nombre de tu proyecto" required /></label>
+              <label>¿Tienes una fecha ideal?<input name="timeline" type="date" /></label>
+            </div>
+            <div class="domain-question">
+              <span class="field-label">¿Tu proyecto ya tiene dominio?</span>
+              <div class="domain-options" data-required="domainChoice" role="radiogroup">
+                <button type="button" data-value="Sí, ya tengo dominio">Sí, ya tengo</button>
+                <button type="button" data-value="No, necesito ayuda">Aún no, necesito ayuda</button>
+              </div>
+              <label id="domain-input-wrap" class="domain-input" for="domain-name">¿Cuál es tu dominio?<input id="domain-name" name="domainName" placeholder="tumarca.com" /></label>
+              <p id="domain-help" class="domain-help">Perfecto. Podemos ayudarte a elegirlo, registrarlo y conectarlo a tu sitio.</p>
+              <input type="hidden" name="domainChoice" required />
+            </div>
+          </section>
+
+          <section class="step summary-step" data-step="10">
+            <p class="kicker">TU IDEA, EN UNA MIRADA</p>
+            <h2>Todo listo para<br /><em>impulsarla.</em></h2>
+            <p class="intro">Revisa tu brief antes de enviarlo. Puedes volver a cualquier paso para ajustar algo.</p>
+            <div id="summary" class="summary" aria-live="polite"></div>
+            <p class="review-note">Antes de enviar, revisa que tu información esté completa y sea correcta.</p>
+          </section>
+        </form>
+
+        <p id="error-message" class="error-message" role="alert"></p>
+        <footer class="card-footer">
+          <button type="button" class="nav-button back" id="back-btn">← <span>Atrás</span></button>
+          <span class="step-count" id="step-count">1 / 10</span>
+          <button type="button" class="nav-button next" id="next-btn"><span>Siguiente</span> →</button>
+        </footer>
+      </section>
+      <p class="footer-note">HECHO CON INTENCIÓN POR IMPULSE LANDING <span>✦</span></p>
+    </main>
+    <div class="success-modal" id="success-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="success-title">
+      <div class="success-content"><p class="kicker">BRIEF RECIBIDO</p><h2 id="success-title">Tu idea ya está<br /><em>en movimiento.</em></h2><p>Gracias por compartirla. En este demo no enviamos datos a un servidor, pero tu resumen está listo para conectar a tu herramienta favorita.</p><button type="button" id="restart-btn">Crear otro brief ↗</button></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
